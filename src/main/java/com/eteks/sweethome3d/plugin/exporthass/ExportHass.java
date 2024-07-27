@@ -39,6 +39,8 @@ import com.eteks.sweethome3d.model.Room;
 import com.eteks.sweethome3d.model.Selectable;
 import com.eteks.sweethome3d.model.Wall;
 
+import static net.gcardone.junidecode.Junidecode.*;
+
 
 public class ExportHass extends Plugin {
 	public class ExportHassAction extends PluginAction {
@@ -153,7 +155,7 @@ public class ExportHass extends Plugin {
 	    				} else { 
 	    					level = "";
 	    				}
-	    				furniturenode.setName(level+((HomeFurnitureGroup) item).getName()+"_"+furniture.getName());
+	    				furniturenode.setName(level+unidecode(((HomeFurnitureGroup) item).getName())+"_"+unidecode(furniture.getName()));
 	    				root.addChild(furniturenode);
 	    				 
 	    			}
@@ -169,7 +171,7 @@ public class ExportHass extends Plugin {
 	    				} else { 
 	    					level = "";
 	    				}
-		    			newnode.setName(level+((HomePieceOfFurniture) item).getName());
+		    			newnode.setName(level+unidecode(((HomePieceOfFurniture) item).getName()));
 		    		}
 		    		else if (item instanceof Wall) {
 		    			if (levels.size() > 1) {
